@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman</title>
+</head>
+<body>
+	<h1>Hangman!</h1>
+	
+	<script>
+	var words = [
+	"javascript",
+	"monkey",
+	"amazing",
+	"pancake",
+	"classroom",
+	"community",
+	"python",
+	"programming",
+	"challenge",
+	"champion"
+	];
+	
+	var word = words[Math.floor(Math.random() * words.length)];
+	
+	var answerArray = [];
+	for (var i = 0; i < word.length; i++){
+		answerArray[i] = " _ ";
+	}
+	
+	var remainingLetters = word.length;
+	trys = word.length;
+	while (remainingLetters > 0){
+	alert(answerArray.join(" "));
+	var guess = prompt("Guess a letter or click Cancel to stop playing.");
+	var gues = guess.toLowerCase();
+	if (trys === 0){
+	  break
+	}
+	if (guess === null){
+	  break;
+	} else if (guess.length !== 1){
+	  alert("Please enter a single letter.");
+	} else {
+	  for (var j = 0; j < word.length; j++){
+		if (word[j] === gues){
+		  answerArray[j] = gues;
+		  remainingLetters--;
+		  trys -= 1;
+			}
+		}
+	  }
+	}
+	alert(answerArray.join(" "));
+	alert("The word was " + word + "!");
+	</script>
+</body>
+</html>
