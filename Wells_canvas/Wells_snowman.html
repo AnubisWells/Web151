@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas</title>
+</head>
+<body>
+	<canvas id = "canvas" width="1000" height="1000"></canvas>
+	<script>
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	var circle = function(x,y,radius){
+		ctx.beginPath();
+		ctx.arc(x,y,radius,0,Math.PI*2,false);
+		ctx.stroke();
+	};
+	var fillCircle = function(x,y,radius){
+		ctx.beginPath();
+		ctx.arc(x,y,radius,0,Math.PI*2,true);
+		ctx.fill();
+	};
+	ctx.lineWidth = 4;
+	ctx.strokeStyle = "Black";
+	circle(100,200,60);//body
+	ctx.fillStyle = "Black";
+	fillCircle(100,200,10);//middle button
+	ctx.fillStyle = "Black";
+	fillCircle(100,160,10);//top button
+	ctx.fillStyle = "Black";
+	fillCircle(100,240,10);//bottom button
+	ctx.strokeStyle = "Black";
+	circle(100,100,40);//head
+	ctx.fillStyle = "Orange";
+	fillCircle(100,100,5);//nose
+	ctx.fillStyle = "Black";
+	fillCircle(85,85,5);//left eye
+	ctx.fillStyle = "Black";
+	fillCircle(115,85,5);//right eye
+	</script>
+</body>
+</html>
